@@ -1,6 +1,6 @@
 # AnthonyPetty.com
 
-[![Build Status](https://travis-ci.org/SPGWhistler/anthonypettydotcom_old.svg?branch=master)
+![Build Status](https://travis-ci.org/SPGWhistler/anthonypettydotcom.svg?branch=master)
 
 
 ---
