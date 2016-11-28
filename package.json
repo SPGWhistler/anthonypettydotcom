@@ -9,8 +9,7 @@
     "build": "cross-env NODE_ENV=production webpack -p --progress",
     "prebuild": "mkdirp build && ncp src/assets build/assets",
     "postbuild": "surge ./build -d anthonypetty.com",
-    "test": "npm run -s lint && npm run -s test:karma",
-    "test:karma": "karma start test/karma.conf.js --single-run",
+    "test": "npm run -s lint",
     "lint": "eslint {src,test}"
   },
   "keywords": [
