@@ -1,10 +1,36 @@
 {
   "name": "anthonypettydotcom",
-  "version": "2.0.0",
-  "description": "anthonypetty.com",
+  "version": "1.0.0",
+  "description": "A simple site resume.",
+  "main": "src/index.js",
   "scripts": {
-    "build": "surge ./public -d anthonypetty.com"
+    "start": "webpack-dev-server --config webpack.dev.js --progress --watch-poll",
+    "prebuild": "rm -r -f build && mkdir build && npm test",
+    "build": "webpack --debug --verbose --config webpack.prod.js"
   },
-  "license": "MIT",
-  "author": "Anthony Petty <SPGWhistler@gmail.com>"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SPGWhistler/anthonypettydotcom.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SPGWhistler/anthonypettydotcom/issues"
+  },
+  "homepage": "https://github.com/SPGWhistler/anthonypettydotcom#readme",
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.5.3",
+    "html-webpack-plugin": "^4.2.1",
+    "pug": "^2.0.4",
+    "pug-loader": "^2.4.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3",
+    "webpack-merge": "^4.2.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  }
 }
