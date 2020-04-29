@@ -22,7 +22,8 @@ module.exports = merge(common, {
 		},
 		watchOptions: {
 			poll: true
-		}
+		},
+		hot: true
 	},
 
 	//Output eval-source-map type source maps.

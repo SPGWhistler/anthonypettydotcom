@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -45,11 +46,7 @@ module.exports = {
 				//inject them into the DOM.
 				test: /\.css$/,
 				exclude: /node_modules/,
-				use: [
-					{
-						loader: 'css-loader'
-					}
-				]
+				use: ['style-loader', 'css-loader']
 			},
 			{
 				//Load pug files
@@ -64,6 +61,11 @@ module.exports = {
 		]
 	},
 	plugins: [
+		//This replaces any string found in the modules which match the key.
+		new webpack.DefinePlugin({
+			//The current date and time
+			BUILDTIME: JSON.stringify(new Date().toString())
+		}),
 		new HtmlWebpackPlugin(Object.assign({
 			filename: 'index.html',
 			template: 'assets/templates/index.pug'

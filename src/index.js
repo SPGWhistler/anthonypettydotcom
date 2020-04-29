@@ -1,2 +1,2 @@
-//import AnthonyPettyDotCom from './classes/AnthonyPettyDotCom';
-//new AnthonyPettyDotCom();
+import AnthonyPetty from './classes/AnthonyPetty';
+new AnthonyPetty();
