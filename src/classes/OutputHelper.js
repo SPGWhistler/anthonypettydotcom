@@ -5,13 +5,14 @@ export default class OutputHelper {
     output(property, value) {
         const name = this.getSectionName(property);
         switch (property) {
+            case 'SourceCode':
+                return this.outputCodeBlock(property, name, value);
             case 'ContactInfo':
                 return this.outputHeader(property, name, value);
             case 'AboutCurrentPosition':
                 return this.outputParagraphs(property, name, value);
             case 'WorkExperience':
                 return this.outputWorkExperience(property, name, value);
-                break;
             case 'Skills':
                 return this.outputList(property, name, value);
             default:
@@ -27,7 +28,9 @@ export default class OutputHelper {
                     <h6>${value.currentTitle}</h6>
                     <h6>${value.address}</h6>
                     <h6>${value.phoneNumber}</h6>
+                    <h6>${value.eMail}</h6>
                     <h6>${value.website}</h6>
+                    <h6>${value.gitHub}</h6>
                 </div>
             </section>`;
         return output;
@@ -95,4 +98,35 @@ export default class OutputHelper {
             </section>`;
         return output;
     }
+    outputCodeBlock(property, name, value) {
+        let output = `
+            <section id="${property}">
+                <div class="section-block">
+        `;
+        output += `
+            <div class="code-block">
+                <pre><code class="language-javascript" style="width: 100%;">${value}</code></pre>
+            </div>`;
+        output += '</div></section>';
+        return output;
+    }
+
+    renderElements(html) {
+		document.getElementById('lastUpdated').innerText = BUILDTIME;
+		document.getElementById('mainContentSourceCode').innerHTML = this.output('SourceCode', atob(ANTHONYPETTYSOURCE));
+		document.getElementById('doc-wrapper').style.backgroundColor = "#000";
+		document.body.style.backgroundColor = "#000";
+		let el = document.getElementById('doFlip');
+		if (el.addEventListener) {
+			el.addEventListener("click", this.doFlip, false);
+		} else if (el.attachEvent) {
+			el.attachEvent('onclick', this.doFlip);
+		}
+		document.getElementById('mainContentRendered').innerHTML = html;
+    }
+	doFlip() {
+		document.getElementById('flip-container').classList.toggle('flipOver');
+		document.getElementById('doc-wrapper').style.backgroundColor = "#f9f9fb";
+		document.body.style.backgroundColor = "#fff";
+	}
 }

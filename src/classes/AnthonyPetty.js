@@ -1,22 +1,16 @@
-import '../assets/styles/styles.css';
-import '../assets/styles/prism.css';
-import '../prism';
-import OutputHelper from './OutputHelper';
-
-const outputHelper = new OutputHelper();
-
 export default class AnthonyPetty {
 	constructor() {
 		const fullName = 'Anthony Petty';
 		const currentTitle = 'Team Lead at Synacor';
 		const address = '1472 Hertel, Rear Upper, Buffalo, NY 14216';
 		const phoneNumber = '716-489-8669';
-		const eMail = 'SPGWhistler@gmail.com';
-		const website = 'anthonypetty.com';
+		const eMail = '<a href="mailto:anthony@anthonypetty.com">anthony@anthonypetty.com</a>';
+		const website = '<a href="http://anthonypetty.com/">anthonypetty.com</a>';
+		const gitHub = '<a href="https://github.com/SPGWhistler">GitHub</a>';
 
 		this.createGetters([{
 			name: 'ContactInfo',
-			defaultValue: {fullName, address, phoneNumber, eMail, website, currentTitle},
+			defaultValue: {fullName, currentTitle, address, phoneNumber, eMail, website, gitHub},
 		}, {
 			name: 'Summary',
 			defaultValue:
@@ -152,13 +146,12 @@ export default class AnthonyPetty {
 		this.outputSite();
 	}
 	outputSite() {
-		document.getElementById('lastUpdated').innerText = BUILDTIME;
 		let html = '';
 		for(const property in this) {
 			let val = this[property];
 			html += outputHelper.output(property, val);
 		}
-		document.getElementById('mainContent').innerHTML = html;
+		outputHelper.renderElements(html);
 	}
 	createGetters(properties) {
 		let newProps = {};
@@ -174,3 +167,9 @@ export default class AnthonyPetty {
 		Object.defineProperties(this, newProps);
 	}
 }
+
+import '../assets/styles/styles.css';
+import '../assets/styles/prism.css';
+import '../prism';
+import OutputHelper from './OutputHelper';
+const outputHelper = new OutputHelper();

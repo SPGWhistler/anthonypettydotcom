@@ -1,19 +1,10 @@
-/*   
- * Template Name: PrettyDocs - Bootstrap 4 Template for documentations
- * Version: 2.2
- * Author: Xiaoying Riley
- * Copyright: 3rd Wave Media
- * Twitter: @3rdwave_themes
- * License: Creative Commons Attribution 3.0 License
- * Website: http://themes.3rdwavemedia.com/
-*/
-/* ======= Base ======= */
 body {
   font-family: 'Open Sans', arial, sans-serif;
   color: #494d55;
   font-size: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #000;
 }
 
 html, body {
@@ -119,6 +110,8 @@ code {
 
 .body-green .btn-green, .body-green a.btn-green {
   color: #fff !important;
+  transition-duration: 0.6s;
+  transition-property: background-color;
 }
 
 .body-green .btn-green:hover, .body-green .btn-green:focus, .body-green .btn-green:active, .body-green .btn-green.active, .body-green .btn-green.hover, .body-green a.btn-green:hover, .body-green a.btn-green:focus, .body-green a.btn-green:active, .body-green a.btn-green.active, .body-green a.btn-green.hover {
@@ -433,6 +426,8 @@ select {
 .doc-wrapper {
   padding: 45px 0;
   background: #f9f9fb;
+  transition-duration: 0.6s;
+  transition-property: background-color;
 }
 
 .doc-body {
@@ -1461,4 +1456,43 @@ select {
   .main-search-box .search-form .search-input {
     width: 560px;
   }
+}
+
+
+
+
+/* entire container, keeps perspective */
+.flip-container {
+	perspective: 1000px;
+}
+
+/* Flip over when the flipOver class is added */
+.flip-container.flipOver .flipper {
+  transform: rotateY(180deg);
+}
+
+/* flip speed goes here */
+.flipper {
+	transition: 0.4s;
+	transform-style: preserve-3d;
+	position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+	z-index: 2;
+	transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+	transform: rotateY(180deg);
 }

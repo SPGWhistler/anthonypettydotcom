@@ -1,6 +1,9 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const btoa = require('btoa');
+const escape = require('escape-html');
+const fs = require('fs');
 
 const htmlCommonConfig = {
 	inject: false,
@@ -64,7 +67,8 @@ module.exports = {
 		//This replaces any string found in the modules which match the key.
 		new webpack.DefinePlugin({
 			//The current date and time
-			BUILDTIME: JSON.stringify(new Date().toString())
+			BUILDTIME: JSON.stringify(new Date().toString()),
+			ANTHONYPETTYSOURCE: '"' + escape(btoa(fs.readFileSync(path.resolve(__dirname, 'src/classes/AnthonyPetty.js'), 'utf8'))) + '"'
 		}),
 		new HtmlWebpackPlugin(Object.assign({
 			filename: 'index.html',
@@ -77,6 +81,5 @@ module.exports = {
 	},
 	output: {
 		filename: '[name].js', //The [name] is the key of the entries object.
-		//path: path.resolve(__dirname, 'public') //Our public directory.
 	}
 };
