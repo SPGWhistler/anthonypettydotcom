@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.js --progress --watch-poll",
-    "prebuild": "rm -r -f build && mkdir build && npm test",
+    "prebuild": "rm -r -f dist && mkdir dist",
+    "publish": "surge dist anthonypetty.com",
     "build": "webpack --debug --verbose --config webpack.prod.js"
   },
   "repository": {
