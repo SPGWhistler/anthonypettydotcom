@@ -2,7 +2,7 @@ export default class AnthonyPetty {
 	constructor() {
 		const fullName = 'Anthony Petty';
 		const currentTitle = 'Team Lead at Synacor';
-		const address = '1472 Hertel, Rear Upper, Buffalo, NY 14216';
+		const address = '65 Argyle Ave, Upper, Buffalo, NY 14226';
 		const phoneNumber = '716-489-8669';
 		const eMail = '<a href="mailto:anthony@anthonypetty.com">anthony@anthonypetty.com</a>';
 		const website = '<a href="http://anthonypetty.com/">anthonypetty.com</a>';
