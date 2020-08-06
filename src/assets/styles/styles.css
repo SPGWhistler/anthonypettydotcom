@@ -1496,3 +1496,9 @@ select {
 .back {
 	transform: rotateY(180deg);
 }
+
+@media print { 
+  .noprint { 
+    visibility: hidden; 
+  } 
+}
