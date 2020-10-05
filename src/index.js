@@ -1,2 +1,2 @@
 import AnthonyPetty from './classes/AnthonyPetty';
-new AnthonyPetty();
+window.anthonypetty = new AnthonyPetty();

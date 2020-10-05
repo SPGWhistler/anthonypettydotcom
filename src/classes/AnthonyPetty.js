@@ -138,9 +138,6 @@ export default class AnthonyPetty {
 					]
 				}]
 			}]
-		}, {
-			name: 'Education',
-			defaultValue: 'Oakridge High School, 1997-2001'
 		}]);
 
 		this.outputSite();
